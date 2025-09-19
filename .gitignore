@@ -1,1 +1,11 @@
 /models
+.DS_Store
+__pycache__/
+**/__pycache__/
+*.pyc
+/dvc_storage/
+airflow/
+.venv/
+.env/
+*.log
+/data/.DS_Store
