@@ -7,30 +7,6 @@ stages:
     outs:
       - data/processed
 
-  predict_existing:
-    cmd: python src/predict_existing.py
-    deps:
-      - src/predict_existing.py
-      - data/processed/X_val.csv
-      - data/processed/y_val.csv
-      - models  # your 19 pretrained .pkl models
-    outs:
-      - predictions/valid_predictions.csv
-    metrics:
-      - metrics/leaderboard.csv:
-          cache: false
-      - metrics/metrics.json:
-          cache: false
-
-  evaluate:
-    cmd: python src/evaluate.py
-    deps:
-      - src/evaluate.py
-      - predictions/valid_predictions.csv
-    metrics:
-      - metrics/decision.json:
-          cache: false
-
   train:
     cmd: python src/train.py
     deps:
@@ -45,14 +21,33 @@ stages:
       - metrics/metrics.json:
           cache: false
 
+  predict_existing:
+    cmd: python src/predict_existing.py
+    deps:
+      - src/predict_existing.py
+      - data/processed/X_val.csv
+      - data/processed/y_val.csv
+      - models
+    outs:
+      - metrics/preds_val
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - metrics/metrics.json
+      - params.yaml
+    metrics:
+      - metrics/decision.json:
+          cache: false
+
   tune:
     cmd: python src/tune.py
     deps:
       - src/tune.py
       - data/processed
       - params.yaml
-    outs:
-      - models/tuned_model.pkl
+      - metrics/metrics.json
     metrics:
       - metrics/tuned_metrics.json:
           cache: false

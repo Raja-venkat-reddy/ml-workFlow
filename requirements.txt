@@ -1,4 +1,28 @@
-dvc
-pandas
-scikit-learn
+# Core scientific stack
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2
+joblib==1.4.2
+PyYAML==6.0.2
 
+# Orchestration
+apache-airflow==2.10.2
+
+# Experiment tuning
+optuna==3.6.1
+
+# Versioning
+dvc==3.51.2
+
+# Optional model (enable if used in params/models)
+xgboost==2.1.1
+
+# If using specific DVC remotes, uncomment one:
+# dvc[s3]==3.51.2
+# dvc[gdrive]==3.51.2
+# dvc[ssh]==3.51.2
+# dvc[azure]==3.51.2
+# dvc[gs]==3.51.2
+
+# For macOS SSL issues (rare but helpful)
+certifi==2024.8.30

@@ -1,0 +1,139 @@
+{
+  "note": "tuning skipped; passthrough of metrics",
+  "has_optuna": true,
+  "per_target": [
+    {
+      "target": "Boron_ppm",
+      "model": "Boron_ppm",
+      "r2": -0.002421036410644506,
+      "rmse": 0.22769553377262364,
+      "mae": 0.19727664
+    },
+    {
+      "target": "Calcium_ppm",
+      "model": "Calcium_ppm",
+      "r2": -0.0010441601695705405,
+      "rmse": 172.89819356746784,
+      "mae": 147.0793419165122
+    },
+    {
+      "target": "Clay_Content",
+      "model": "Clay_Content",
+      "r2": 0.1091206832846392,
+      "rmse": 8.327294942007256,
+      "mae": 7.18022164574815
+    },
+    {
+      "target": "Copper_ppm",
+      "model": "Copper_ppm",
+      "r2": -0.0010910777137809191,
+      "rmse": 0.43239938717000975,
+      "mae": 0.37831566
+    },
+    {
+      "target": "Electrical_Conductivity_dSm",
+      "model": "Electrical_Conductivity_dSm",
+      "r2": 0.6973709024286462,
+      "rmse": 0.15866671114802403,
+      "mae": 0.124376210245259
+    },
+    {
+      "target": "Iron_ppm",
+      "model": "Iron_ppm",
+      "r2": 0.879705699994775,
+      "rmse": 0.6055907156983174,
+      "mae": 0.43431560000000013
+    },
+    {
+      "target": "Magnesium_ppm",
+      "model": "Magnesium_ppm",
+      "r2": -0.005741823056755635,
+      "rmse": 84.46410800305777,
+      "mae": 72.4127548858596
+    },
+    {
+      "target": "Nitrogen_kg_ha",
+      "model": "Nitrogen_kg_ha",
+      "r2": 0.9121521007662297,
+      "rmse": 22.62019973310482,
+      "mae": 18.381733999999998
+    },
+    {
+      "target": "Organic_Carbon_%",
+      "model": "Organic_Carbon_%",
+      "r2": 0.9987183981410078,
+      "rmse": 0.017020730889124508,
+      "mae": 0.013152666666666566
+    },
+    {
+      "target": "Phosphorus_kg_ha",
+      "model": "Phosphorus_kg_ha",
+      "r2": 0.7550558846969997,
+      "rmse": 7.084660607514167,
+      "mae": 5.611112224751012
+    },
+    {
+      "target": "Potassium_kg_ha",
+      "model": "Potassium_kg_ha",
+      "r2": 0.9042234299937357,
+      "rmse": 35.83067285126659,
+      "mae": 29.050107019766315
+    },
+    {
+      "target": "Sand_Content",
+      "model": "Sand_Content",
+      "r2": 0.30867377583388955,
+      "rmse": 11.83344035836578,
+      "mae": 9.836214
+    },
+    {
+      "target": "Silt_Content",
+      "model": "Silt_Content",
+      "r2": 0.06164138536829322,
+      "rmse": 15.63582056979706,
+      "mae": 12.941520666666666
+    },
+    {
+      "target": "Sulfur_ppm",
+      "model": "Sulfur_ppm",
+      "r2": -0.0034375622363234104,
+      "rmse": 7.585260434493027,
+      "mae": 6.566143422673404
+    },
+    {
+      "target": "Water_Retention_10kPa",
+      "model": "Water_Retention_10kPa",
+      "r2": -0.003502453325513688,
+      "rmse": 57.00993876665481,
+      "mae": 49.646172933882745
+    },
+    {
+      "target": "Water_Retention_1500kPa",
+      "model": "Water_Retention_1500kPa",
+      "r2": -0.003020570786098631,
+      "rmse": 56.078631963842895,
+      "mae": 48.22386889608094
+    },
+    {
+      "target": "Water_Retention_33kPa",
+      "model": "Water_Retention_33kPa",
+      "r2": -0.0041965647938901895,
+      "rmse": 57.24902302428776,
+      "mae": 49.18904497995875
+    },
+    {
+      "target": "Zinc_ppm",
+      "model": "Zinc_ppm",
+      "r2": -0.010296056689896194,
+      "rmse": 0.2596058417221192,
+      "mae": 0.22646472
+    },
+    {
+      "target": "pH",
+      "model": "pH",
+      "r2": 0.022636104792685297,
+      "rmse": 0.6695552843207752,
+      "mae": 0.5360966550742392
+    }
+  ]
+}

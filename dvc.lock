@@ -1,0 +1,121 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 7061c0827d330b3ea6d1a5564a3ae4f9.dir
+      size: 2379701
+      nfiles: 1
+    - path: src/preprocess.py
+      hash: md5
+      md5: d76f78b9c0e197248b4d50c94e3ec043
+      size: 2122
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 328cc18e87cecb3ab18c829c5045b7a6.dir
+      size: 2063030
+      nfiles: 6
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 328cc18e87cecb3ab18c829c5045b7a6.dir
+      size: 2063030
+      nfiles: 6
+    - path: params.yaml
+      hash: md5
+      md5: 461cb2c1a496524b2f0cc579ee9a6d4f
+      size: 1608
+    - path: src/train.py
+      hash: md5
+      md5: 7e8086dc581218d67517fd40b7623d88
+      size: 3867
+    outs:
+    - path: metrics/leaderboard.csv
+      hash: md5
+      md5: 2c0def4832f2ad6f49f95677a5a49751
+      size: 16464
+    - path: metrics/metrics.json
+      hash: md5
+      md5: 2970da4f2714f8255108035897ccc21c
+      size: 3118
+    - path: models
+      hash: md5
+      md5: 23fea852bfa5e395e590080f71e6d10e.dir
+      size: 621438976
+      nfiles: 19
+  predict_existing:
+    cmd: python src/predict_existing.py
+    deps:
+    - path: data/processed/X_val.csv
+      hash: md5
+      md5: 191dbe6376ef321416c81df48be4dafb
+      size: 156007
+    - path: data/processed/y_val.csv
+      hash: md5
+      md5: db4eeb73860c88917d549281e876f4e4
+      size: 50741
+    - path: models
+      hash: md5
+      md5: 23fea852bfa5e395e590080f71e6d10e.dir
+      size: 621438976
+      nfiles: 19
+    - path: src/predict_existing.py
+      hash: md5
+      md5: 5446e1320d9a3e48563f0082b0989ef7
+      size: 1594
+    outs:
+    - path: metrics/preds_val
+      hash: md5
+      md5: 64d52495799da9df27ab5ef04802b196.dir
+      size: 170299
+      nfiles: 19
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: metrics/metrics.json
+      hash: md5
+      md5: 62011d933fc32ede9b1ebe1a1c84585f
+      size: 3382
+    - path: params.yaml
+      hash: md5
+      md5: 461cb2c1a496524b2f0cc579ee9a6d4f
+      size: 1608
+    - path: src/evaluate.py
+      hash: md5
+      md5: 4d953d9812047fc0424e21ce177c0b61
+      size: 1168
+    outs:
+    - path: metrics/decision.json
+      hash: md5
+      md5: c5760fb7a477b0c56859c96d5e2cb12c
+      size: 153
+  tune:
+    cmd: python src/tune.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 328cc18e87cecb3ab18c829c5045b7a6.dir
+      size: 2063030
+      nfiles: 6
+    - path: metrics/metrics.json
+      hash: md5
+      md5: 62011d933fc32ede9b1ebe1a1c84585f
+      size: 3382
+    - path: params.yaml
+      hash: md5
+      md5: 461cb2c1a496524b2f0cc579ee9a6d4f
+      size: 1608
+    - path: src/tune.py
+      hash: md5
+      md5: 9946a75348260643d91ea791210d1df9
+      size: 1000
+    outs:
+    - path: metrics/tuned_metrics.json
+      hash: md5
+      md5: d600364d449c68f41c059a50a8d4a05a
+      size: 3456
