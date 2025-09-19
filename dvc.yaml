@@ -1,0 +1,31 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - src/preprocess.py
+    - data/raw/dataset.csv
+    outs:
+    - data/processed
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - src/evaluate.py
+    - predictions/valid_predictions.csv
+    outs:
+    - metrics/leaderboard.csv
+    metrics:
+    - metrics/decision.json:
+        cache: false
+
+  tune:
+    cmd: python src/tune.py
+    deps:
+    - src/tune.py
+    - data/processed
+    - params.yaml
+    outs:
+    - models/tuned_model.pkl
+    metrics:
+    - metrics/tuned_metrics.json:
+        cache: false
