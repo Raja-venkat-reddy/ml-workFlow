@@ -1,139 +1,120 @@
 {
   "note": "tuning skipped; passthrough of metrics",
   "has_optuna": true,
-  "per_target": [
-    {
-      "target": "Boron_ppm",
-      "model": "Boron_ppm",
-      "r2": -0.002421036410644506,
-      "rmse": 0.22769553377262364,
-      "mae": 0.19727664
+  "per_target": {
+    "Nitrogen_kg_ha": {
+      "model": "ExtraTreesRegressor",
+      "r2": 0.9002419964046645,
+      "rmse": 23.304369763081862,
+      "mae": 19.12000866666666
     },
-    {
-      "target": "Calcium_ppm",
-      "model": "Calcium_ppm",
-      "r2": -0.0010441601695705405,
-      "rmse": 172.89819356746784,
-      "mae": 147.0793419165122
+    "Phosphorus_kg_ha": {
+      "model": "SVR",
+      "r2": 0.7564221487647766,
+      "rmse": 6.738341148145906,
+      "mae": 5.3849463201591075
     },
-    {
-      "target": "Clay_Content",
-      "model": "Clay_Content",
-      "r2": 0.1091206832846392,
-      "rmse": 8.327294942007256,
-      "mae": 7.18022164574815
+    "Potassium_kg_ha": {
+      "model": "GradientBoostingRegressor",
+      "r2": 0.8903808128541691,
+      "rmse": 37.58356577681587,
+      "mae": 30.926573981228035
     },
-    {
-      "target": "Copper_ppm",
-      "model": "Copper_ppm",
-      "r2": -0.0010910777137809191,
-      "rmse": 0.43239938717000975,
-      "mae": 0.37831566
+    "Organic_Carbon_%": {
+      "model": "ExtraTreesRegressor",
+      "r2": 0.9987048571443041,
+      "rmse": 0.016579185142822927,
+      "mae": 0.012909799999999999
     },
-    {
-      "target": "Electrical_Conductivity_dSm",
-      "model": "Electrical_Conductivity_dSm",
-      "r2": 0.6973709024286462,
-      "rmse": 0.15866671114802403,
-      "mae": 0.124376210245259
+    "Boron_ppm": {
+      "model": "Lasso",
+      "r2": -3.189517630075578e-05,
+      "rmse": 0.2284200028456352,
+      "mae": 0.1986842
     },
-    {
-      "target": "Iron_ppm",
-      "model": "Iron_ppm",
-      "r2": 0.879705699994775,
-      "rmse": 0.6055907156983174,
-      "mae": 0.43431560000000013
+    "Calcium_ppm": {
+      "model": "SVR",
+      "r2": -0.012267263620090674,
+      "rmse": 178.5850952829792,
+      "mae": 156.4089102991208
     },
-    {
-      "target": "Magnesium_ppm",
-      "model": "Magnesium_ppm",
-      "r2": -0.005741823056755635,
-      "rmse": 84.46410800305777,
-      "mae": 72.4127548858596
+    "Copper_ppm": {
+      "model": "Lasso",
+      "r2": -0.0028646513716625854,
+      "rmse": 0.4450291201988922,
+      "mae": 0.38731998
     },
-    {
-      "target": "Nitrogen_kg_ha",
-      "model": "Nitrogen_kg_ha",
-      "r2": 0.9121521007662297,
-      "rmse": 22.62019973310482,
-      "mae": 18.381733999999998
+    "Iron_ppm": {
+      "model": "RandomForestRegressor",
+      "r2": 0.8537889985288354,
+      "rmse": 0.671788848351921,
+      "mae": 0.4812594000000001
     },
-    {
-      "target": "Organic_Carbon_%",
-      "model": "Organic_Carbon_%",
-      "r2": 0.9987183981410078,
-      "rmse": 0.017020730889124508,
-      "mae": 0.013152666666666566
+    "Magnesium_ppm": {
+      "model": "SVR",
+      "r2": -0.0026895832663438313,
+      "rmse": 87.63158493891008,
+      "mae": 75.62159907525513
     },
-    {
-      "target": "Phosphorus_kg_ha",
-      "model": "Phosphorus_kg_ha",
-      "r2": 0.7550558846969997,
-      "rmse": 7.084660607514167,
-      "mae": 5.611112224751012
+    "Sulfur_ppm": {
+      "model": "ElasticNet",
+      "r2": -0.008326373586027946,
+      "rmse": 7.611465457631362,
+      "mae": 6.623668433767798
     },
-    {
-      "target": "Potassium_kg_ha",
-      "model": "Potassium_kg_ha",
-      "r2": 0.9042234299937357,
-      "rmse": 35.83067285126659,
-      "mae": 29.050107019766315
+    "Zinc_ppm": {
+      "model": "Lasso",
+      "r2": -0.0010914370215455715,
+      "rmse": 0.2559898301812984,
+      "mae": 0.22107588
     },
-    {
-      "target": "Sand_Content",
-      "model": "Sand_Content",
-      "r2": 0.30867377583388955,
-      "rmse": 11.83344035836578,
-      "mae": 9.836214
+    "Electrical_Conductivity_dSm": {
+      "model": "SVR",
+      "r2": 0.7183630998926285,
+      "rmse": 0.15886101780743148,
+      "mae": 0.126001663861567
     },
-    {
-      "target": "Silt_Content",
-      "model": "Silt_Content",
-      "r2": 0.06164138536829322,
-      "rmse": 15.63582056979706,
-      "mae": 12.941520666666666
+    "Water_Retention_10kPa": {
+      "model": "Ridge",
+      "r2": 0.0024330873180568036,
+      "rmse": 58.28213644907956,
+      "mae": 50.93623943022429
     },
-    {
-      "target": "Sulfur_ppm",
-      "model": "Sulfur_ppm",
-      "r2": -0.0034375622363234104,
-      "rmse": 7.585260434493027,
-      "mae": 6.566143422673404
+    "Water_Retention_1500kPa": {
+      "model": "ElasticNet",
+      "r2": -0.0007468447456986382,
+      "rmse": 60.08884167136316,
+      "mae": 51.94844198682229
     },
-    {
-      "target": "Water_Retention_10kPa",
-      "model": "Water_Retention_10kPa",
-      "r2": -0.003502453325513688,
-      "rmse": 57.00993876665481,
-      "mae": 49.646172933882745
+    "Water_Retention_33kPa": {
+      "model": "Ridge",
+      "r2": 0.0024010212921010687,
+      "rmse": 58.82819843183845,
+      "mae": 50.811976246992124
     },
-    {
-      "target": "Water_Retention_1500kPa",
-      "model": "Water_Retention_1500kPa",
-      "r2": -0.003020570786098631,
-      "rmse": 56.078631963842895,
-      "mae": 48.22386889608094
+    "Sand_Content": {
+      "model": "RandomForestRegressor",
+      "r2": 0.29976253308019707,
+      "rmse": 12.019159816101956,
+      "mae": 10.354536000000001
     },
-    {
-      "target": "Water_Retention_33kPa",
-      "model": "Water_Retention_33kPa",
-      "r2": -0.0041965647938901895,
-      "rmse": 57.24902302428776,
-      "mae": 49.18904497995875
+    "Clay_Content": {
+      "model": "LinearRegression",
+      "r2": 0.12395084079813579,
+      "rmse": 7.8280788283898834,
+      "mae": 6.546551120247275
     },
-    {
-      "target": "Zinc_ppm",
-      "model": "Zinc_ppm",
-      "r2": -0.010296056689896194,
-      "rmse": 0.2596058417221192,
-      "mae": 0.22646472
+    "Silt_Content": {
+      "model": "ExtraTreesRegressor",
+      "r2": 0.07874223669509128,
+      "rmse": 16.146111642222444,
+      "mae": 13.510290666666666
     },
-    {
-      "target": "pH",
-      "model": "pH",
-      "r2": 0.022636104792685297,
-      "rmse": 0.6695552843207752,
-      "mae": 0.5360966550742392
+    "pH": {
+      "model": "Ridge",
+      "r2": 0.02549588828719207,
+      "rmse": 0.6740420485994282,
+      "mae": 0.5407436335771384
     }
-  ]
+  }
 }

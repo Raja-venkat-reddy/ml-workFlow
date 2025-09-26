@@ -1,4 +1,13 @@
 stages:
+  validate:
+    cmd: python src/validate_data.py
+    deps:
+      - src/validate_data.py
+      - data/raw
+      - params.yaml
+    outs:
+      - metrics/validation.ok:
+          cache: false
   preprocess:
     cmd: python src/preprocess.py
     deps:
@@ -41,6 +50,15 @@ stages:
       - metrics/decision.json:
           cache: false
 
+  evidently:
+    cmd: python src/evidently_report.py
+    deps:
+      - src/evidently_report.py
+      - data/processed/X_train.csv
+      - data/processed/X_val.csv
+    outs:
+      - metrics/reports
+
   tune:
     cmd: python src/tune.py
     deps:
@@ -51,3 +69,9 @@ stages:
     metrics:
       - metrics/tuned_metrics.json:
           cache: false
+
+  alert:
+    cmd: python src/alerting.py
+    deps:
+      - src/alerting.py
+      - metrics/decision.json

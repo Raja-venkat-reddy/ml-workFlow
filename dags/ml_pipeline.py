@@ -24,6 +24,11 @@ with DAG(
         bash_command=f"cd {REPO} && dvc pull || true"
     )
 
+    validate = BashOperator(
+        task_id="validate",
+        bash_command=f"cd {REPO} && dvc repro validate"
+    )
+
     repro_preprocess = BashOperator(
         task_id="repro_preprocess",
         bash_command=f"cd {REPO} && dvc repro preprocess"
@@ -44,6 +49,11 @@ with DAG(
         bash_command=f"cd {REPO} && dvc repro evaluate"
     )
 
+    repro_evidently = BashOperator(
+        task_id="repro_evidently",
+        bash_command=f"cd {REPO} && dvc repro evidently"
+    )
+
     branch = BranchPythonOperator(
         task_id="branch",
         python_callable=decide_next
@@ -59,6 +69,11 @@ with DAG(
         bash_command=f"cd {REPO} && dvc repro evaluate"
     )
 
+    alert = BashOperator(
+        task_id="alert",
+        bash_command=f"cd {REPO} && dvc repro alert || true"
+    )
+
     finish = BashOperator(
         task_id="finish",
         bash_command="echo 'Done'"
@@ -69,7 +84,7 @@ with DAG(
         bash_command=f"cd {REPO} && dvc add models && dvc push || true"
     )
 
-    dvc_pull >> repro_preprocess >> repro_train >> repro_predict >> repro_evaluate >> branch
+    dvc_pull >> validate >> repro_preprocess >> repro_train >> repro_predict >> repro_evaluate >> repro_evidently >> branch
     branch >> [finish, tune]
-    tune >> re_evaluate >> finish
-    finish >> dvc_push
+    tune >> re_evaluate >> repro_evidently >> finish
+    finish >> alert >> dvc_push
